@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx nodemon server.js"
+    "dev": "npx nodemon server.js",
+    "migrate": "node-pg-migrate up --migrations-dir src/db/migrations",
+    "migrate:down": "node-pg-migrate down --migrations-dir src/db/migrations",
+    "migrate:create": "node-pg-migrate create --migrations-dir src/db/migrations",
+    "migrate:redo":"node-pg-migrate redo"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +17,9 @@
   "type": "commonjs",
   "dependencies": {
     "dotenv": "^17.4.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "morgan": "^1.11.0",
+    "node-pg-migrate": "^9.0.0",
+    "pg": "^8.22.0"
   }
 }
